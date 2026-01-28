@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Creative Developer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&family=Playfair+Display:ital,wght@0,600;1,600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <!-- Font Awesome Placeholder -->
+    <!-- Note: FontAwesome kit might need replacement or CDN if not working, using CDN below for safety -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="cursor-dot" data-cursor-dot></div>
+    <div class="cursor-outline" data-cursor-outline></div>
+
+    <header class="header">
+        <a href="#home" class="logo">PORTFOLIO<span class="dot">.</span></a>
+
+        <nav class="navbar">
+            <a href="#home" class="active">Home</a>
+            <a href="#about">About</a>
+            <a href="#portfolio">Work</a>
+            <a href="#contact">Contact</a>
+        </nav>
+
+        <div id="menu-icon" class="fas fa-bars"></div>
+    </header>
+
+    <section class="home" id="home">
+        <div class="home-content">
+            <h3>Hello, It's Me</h3>
+            <h1>Jeremy Coach</h1>
+            <h3>And I'm a <span class="multiple-text"></span></h3>
+            <p>미래를 설계하고 가치를 만드는 크리에이티브 디벨로퍼입니다.<br>
+                디자인과 기술의 경계에서 혁신적인 경험을 제공합니다.</p>
+
+            <div class="social-media">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+
+            <a href="#portfolio" class="btn">View My Work</a>
+        </div>
+
+        <div class="home-img">
+            <div class="glowing-circle">
+                <span></span>
+                <span></span>
+                <div class="image">
+                    <!-- Placeholder for profile image -->
+                    <img src="jeremy04.png" alt="Jeremy Coach 프로필">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <div class="about-img">
+            <img src="https://cdn.pixabay.com/photo/2023/06/15/03/46/avatar-8064433_1280.jpg" alt="About Me">
+        </div>
+
+        <div class="about-content">
+            <h2 class="heading">About <span>Me</span></h2>
+            <h3>Visionary Creator</h3>
+            <p>단순한 코딩을 넘어, 사용자가 경험하는 모든 순간을 디자인합니다.
+                최신 웹 트렌드와 기술을 접목하여 브랜드 가치를 높이는 디지털 공간을 구축합니다.
+                끊임없는 호기심으로 새로운 기술을 탐구하고, 이를 실무에 적용하여 최상의 결과물을 만들어냅니다.</p>
+            <a href="#" class="btn">Read More</a>
+        </div>
+    </section>
+
+    <section class="portfolio" id="portfolio">
+        <h2 class="heading">Latest <span>Project</span></h2>
+        <div class="portfolio-container">
+            <div class="portfolio-box">
+                <img src="https://cdn.pixabay.com/photo/2021/11/22/16/09/monitor-6816997_1280.jpg" alt="Project 1">
+                <div class="portfolio-layer">
+                    <h4>Web Design</h4>
+                    <p>현대적인 감각의 웹 디자인 프로젝트입니다.</p>
+                    <a href="#"><i class="fas fa-external-link-alt"></i></a>
+                </div>
+            </div>
+
+            <div class="portfolio-box">
+                <img src="https://cdn.pixabay.com/photo/2016/11/29/08/42/camera-1868494_1280.jpg" alt="Project 2">
+                <div class="portfolio-layer">
+                    <h4>App Development</h4>
+                    <p>사용자 친화적인 모바일 앱 인터페이스입니다.</p>
+                    <a href="#"><i class="fas fa-external-link-alt"></i></a>
+                </div>
+            </div>
+
+            <div class="portfolio-box">
+                <img src="https://cdn.pixabay.com/photo/2017/06/20/23/15/coffee-2425303_1280.jpg" alt="Project 3">
+                <div class="portfolio-layer">
+                    <h4>Branding</h4>
+                    <p>브랜드 아이덴티티를 확립하는 전략적 디자인입니다.</p>
+                    <a href="#"><i class="fas fa-external-link-alt"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <h2 class="heading">Contact <span>Me</span></h2>
+        <form action="#">
+            <div class="input-box">
+                <input type="text" placeholder="Full Name">
+                <input type="email" placeholder="Email Address">
+            </div>
+            <div class="input-box">
+                <input type="number" placeholder="Mobile Number">
+                <input type="text" placeholder="Email Subject">
+            </div>
+            <textarea name="" id="" cols="30" rows="10" placeholder="Your Message"></textarea>
+            <input type="submit" value="Send Message" class="btn">
+        </form>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-text">
+            <p>Copyright &copy; 2026 Jeremy Coach | All Rights Reserved.</p>
+        </div>
+        <div class="footer-iconTop">
+            <a href="#home"><i class="fas fa-arrow-up"></i></a>
+        </div>
+    </footer>
+
+    <!-- Scroll Reveal -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <!-- Typed JS -->
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
