@@ -50,10 +50,10 @@ ScrollReveal().reveal('.home-content p, .about-content', { origin: 'right' });
 
 /* Typed JS */
 const typed = new Typed('.multiple-text', {
-    strings: ['Frontend Developer', 'UI/UX Designer', 'YouTuber'],
-    typeSpeed: 100,
-    backSpeed: 100,
-    backDelay: 1000,
+    strings: ['Flow Makes You Grow', '생각을 콘텐츠로', '콘텐츠를 성장으로'],
+    typeSpeed: 80,
+    backSpeed: 60,
+    backDelay: 1500,
     loop: true
 });
 

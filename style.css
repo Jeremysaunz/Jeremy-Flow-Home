@@ -147,47 +147,51 @@ span {
     gap: 4rem;
 }
 
-.home-content h3 {
-    font-size: 3.2rem;
-    font-weight: 700;
+.home-content {
+    max-width: 600px;
 }
 
-.home-content h3:nth-of-type(2) {
-    margin-bottom: 2rem;
+.home-welcome {
+    font-size: 1.8rem;
+    color: var(--accent-color);
+    font-weight: 400;
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.2rem;
+    text-transform: uppercase;
 }
 
 .home-content h1 {
-    font-size: 5.6rem;
+    font-size: 6rem;
     font-weight: 700;
-    line-height: 1.3;
+    line-height: 1.2;
+    margin-bottom: 1rem;
 }
 
-.home-content p {
-    font-size: 1.6rem;
-    margin: 2rem 0 4rem;
-    color: var(--accent-color);
-    line-height: 1.6;
-}
-
-.social-media a {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    width: 4rem;
-    height: 4rem;
-    background: transparent;
-    border: 2px solid var(--main-color);
-    border-radius: 50%;
-    font-size: 2rem;
+.home-content h1 .highlight-dot {
     color: var(--main-color);
-    margin: 3rem 1.5rem 3rem 0;
-    transition: 0.5s ease;
 }
 
-.social-media a:hover {
-    background: var(--main-color);
-    color: var(--second-bg-color);
-    box-shadow: 0 0 1rem var(--main-color);
+.home-tagline {
+    font-size: 2.8rem;
+    font-weight: 500;
+    color: var(--main-color);
+    min-height: 4rem;
+    margin-bottom: 2rem;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+}
+
+.home-description {
+    font-size: 1.7rem;
+    color: var(--accent-color);
+    line-height: 1.8;
+    margin-bottom: 3rem;
+}
+
+.home-cta {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
 }
 
 .btn {
@@ -206,10 +210,22 @@ span {
 .btn:hover {
     box-shadow: none;
     transform: scale(1.05);
-    /* Enhanced hover effect */
     background: transparent;
     color: var(--main-color);
     border: 2px solid var(--main-color);
+}
+
+.btn-outline {
+    background: transparent;
+    color: var(--main-color);
+    border: 2px solid var(--main-color);
+    box-shadow: none;
+}
+
+.btn-outline:hover {
+    background: var(--main-color);
+    color: var(--bg-color);
+    box-shadow: 0 0 1rem var(--main-color);
 }
 
 
@@ -272,9 +288,31 @@ span {
     height: 130%;
     object-fit: cover;
     object-position: center 20%;
-    /* 얼굴이 중앙에 오도록 조정 */
-    transition: 0.5s;
+    animation: globeFloat 8s ease-in-out infinite;
 }
+
+/* 지구본 스타일 부드러운 움직임 */
+@keyframes globeFloat {
+
+    0%,
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+    25% {
+        transform: translate(-48%, -51%) scale(1.02);
+    }
+
+    50% {
+        transform: translate(-52%, -50%) scale(1);
+    }
+
+    75% {
+        transform: translate(-50%, -49%) scale(1.02);
+    }
+}
+
+
 
 .home-img .image:hover img {
     transform: translate(-50%, -50%) scale(1.1);
