@@ -752,7 +752,69 @@ span {
     }
 }
 
-/* Contact Section */
+/* Products Section */
+.products {
+    background: var(--second-bg-color);
+    padding: 8rem 9%;
+}
+
+.products-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2.5rem;
+    margin-top: 4rem;
+}
+
+.product-card {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 2rem;
+    padding: 3rem 2.5rem;
+    text-align: center;
+    transition: all 0.4s ease;
+    cursor: pointer;
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--main-color);
+    box-shadow: 0 10px 30px rgba(88, 166, 255, 0.15);
+}
+
+.product-icon {
+    width: 6rem;
+    height: 6rem;
+    margin: 0 auto 2rem;
+    background: linear-gradient(135deg, var(--main-color), #22d3ee);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.product-icon i {
+    font-size: 2.5rem;
+    color: var(--bg-color);
+}
+
+.product-card h3 {
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-color);
+}
+
+.product-card p {
+    font-size: 1.5rem;
+    color: var(--accent-color);
+    line-height: 1.7;
+    margin-bottom: 2.5rem;
+}
+
 .contact h2 {
     margin-bottom: 3rem;
 }
