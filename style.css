@@ -88,10 +88,16 @@ body {
 
 .footer-logo img {
     height: 50px;
+    max-height: 50px;
+    max-width: 150px;
     width: auto;
-    border-radius: 15px;
-    /* Rounded corners */
+    border-radius: 50%;
+    /* Fully rounded/circular */
     margin-right: 2rem;
+    object-fit: cover;
+    /* Ensures image isn't distorted if aspect ratio changes */
+    border: 2px solid var(--glass-border);
+    /* Optional subtle border */
 }
 
 /* Removed text styles as they are no longer needed
