@@ -759,20 +759,30 @@ span {
 }
 
 .products-container {
-    max-width: 1200px;
+    max-width: 1400px;
+    /* Widened container */
     margin: 0 auto;
 }
 
 .bento-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, auto);
+    grid-template-columns: repeat(4, 1fr);
+    /* 4 Columns */
+    grid-template-rows: repeat(2, 350px);
+    /* Fixed height rows for better aspect ratio */
     gap: 2.5rem;
     margin-top: 4rem;
 }
 
-.card-large {
+/* Card Size Utilities */
+.card-2x2 {
+    grid-column: span 2;
     grid-row: span 2;
+}
+
+.card-2x1 {
+    grid-column: span 2;
+    grid-row: span 1;
 }
 
 .product-card {
@@ -886,14 +896,53 @@ span {
 }
 
 /* Responsive Grid for Bento (Placed LAST) */
-@media (max-width: 768px) {
+@media (max-width: 1200px) {
     .bento-grid {
-        grid-template-columns: 1fr;
+        grid-template-rows: repeat(2, 300px);
+        /* Slightly smaller height */
+    }
+}
+
+@media (max-width: 991px) {
+
+    /* Tablet */
+    .bento-grid {
+        grid-template-columns: repeat(2, 1fr);
+        /* 2 Cols */
         grid-template-rows: auto;
+        /* Auto height rows */
     }
 
-    .card-large {
+    .card-2x2,
+    .card-2x1 {
+        grid-column: span 2;
+        /* Full width */
+        grid-row: auto;
+    }
+
+    .card-2x2 {
         grid-row: span 1;
+        /* Reset height override */
+        min-height: 400px;
+    }
+}
+
+@media (max-width: 768px) {
+
+    /* Mobile */
+    .products {
+        padding: 8rem 5%;
+    }
+
+    .bento-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .card-2x2,
+    .card-2x1 {
+        grid-column: span 1;
+        min-height: auto;
     }
 }
 
