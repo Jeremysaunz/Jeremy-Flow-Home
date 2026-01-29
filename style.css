@@ -752,10 +752,11 @@ span {
     }
 }
 
-/* Products Section */
+/* Products Section - Bento Grid Layout */
 .products {
     background: var(--second-bg-color);
-    padding: 8rem 9%;
+    padding: 10rem 9%;
+    /* Increased padding */
 }
 
 .products-container {
