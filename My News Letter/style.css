@@ -657,9 +657,11 @@ input[type="email"]:focus {
 
 .footer-content {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
     gap: 24px;
+    flex-wrap: wrap;
 }
 
 .footer-logo {
