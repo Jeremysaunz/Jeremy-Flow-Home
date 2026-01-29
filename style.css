@@ -772,9 +772,10 @@ span {
 
 .product-card {
     position: relative;
-    background: rgba(255, 255, 255, 0.03);
+    background: rgba(255, 255, 255, 0.05);
+    /* Increased opacity */
     backdrop-filter: blur(15px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 2rem;
     padding: 3.5rem 2.5rem 3rem;
     text-align: center;
@@ -810,34 +811,38 @@ span {
 
 .product-card:hover {
     transform: translateY(-10px) scale(1.02);
-    border-color: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.3);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    background: rgba(255, 255, 255, 0.1);
 }
 
 .product-tag {
     position: absolute;
     top: 1.5rem;
     right: 1.5rem;
-    font-size: 0.8rem;
+    font-size: 1.1rem;
+    /* Significantly larger */
     font-weight: 700;
-    padding: 0.4rem 1rem;
+    padding: 0.6rem 1.4rem;
     border-radius: 30px;
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.1);
     color: var(--text-color);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: 1px;
+    z-index: 10;
 }
 
 .product-icon {
-    width: 7rem;
-    height: 7rem;
-    margin: 1rem auto 2rem;
+    width: 8rem;
+    height: 8rem;
+    margin: 3rem auto 2rem;
+    /* Added margin-top to clear tag */
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 3rem;
+    font-size: 3.5rem;
     color: #fff;
     transition: 0.3s;
 }
@@ -853,20 +858,19 @@ span {
 }
 
 .product-card h3 {
-    font-size: 2.2rem;
-    margin-bottom: 1rem;
+    font-size: 2.4rem;
+    margin-bottom: 1.2rem;
     color: var(--text-color);
     font-weight: 700;
 }
 
 .product-card p {
-    font-size: 1.4rem;
-    color: #a0a0b0;
-    /* Use hex for specific muted tone */
+    font-size: 1.5rem;
+    color: #c0c0d0;
+    /* Brighter text */
     line-height: 1.6;
     margin-bottom: 2.5rem;
     flex-grow: 1;
-    /* Push button to bottom */
 }
 
 .contact h2 {
