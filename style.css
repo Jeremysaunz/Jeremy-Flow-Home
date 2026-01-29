@@ -75,16 +75,23 @@ body {
 }
 
 .logo {
-    font-size: 2.5rem;
-    color: var(--text-color);
-    font-weight: 700;
+    display: flex;
+    align-items: center;
     cursor: default;
     transition: 0.3s;
 }
 
+.logo img {
+    height: 45px;
+    width: auto;
+    object-fit: contain;
+}
+
+/* Removed text styles as they are no longer needed
 .logo .dot {
     color: var(--main-color);
 }
+*/
 
 .navbar a {
     font-size: 1.7rem;
