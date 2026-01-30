@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creator Dashboard | Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo-area">
+                <span class="logo-text" style="font-size: 24px; letter-spacing: 1px;">FLOWLAB<span
+                        style="color: var(--accent-color);">.</span></span>
+            </div>
+
+            <nav class="nav-menu">
+                <a href="#" class="nav-item active">
+                    <i class="fa-solid fa-grid-2"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fa-solid fa-layer-group"></i>
+                    <span>All Products</span>
+                </a>
+
+                <div class="sidebar-section-title">My Products</div>
+                <div class="product-list" id="sidebar-product-list">
+                    <!-- Products will be added here dynamically -->
+                </div>
+            </nav>
+
+
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="top-header">
+                <div class="header-left">
+                    <h1>Discover My Digital Products</h1>
+                    <p id="current-date" class="date-display">Experience a diverse range of web services.</p>
+                </div>
+                <div class="header-right">
+                    <div class="search-container">
+                        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                        <input type="text" id="project-search" placeholder="Search projects...">
+                    </div>
+                    <button class="cta-btn" id="new-product-btn">+ New Product</button>
+                </div>
+            </header>
+
+            <!-- Stats Section -->
+            <section class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon purple"><i class="fa-solid fa-rocket"></i></div>
+                    <div class="stat-info">
+                        <span class="label">Total Projects</span>
+                        <span class="value" id="stat-total-projects">0</span>
+                        <span class="trend up">Active Portfolio</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon green"><i class="fa-regular fa-clock"></i></div>
+                    <div class="stat-info">
+                        <span class="label">Last Activity</span>
+                        <span class="value" id="stat-last-activity" style="font-size: 18px;">Now</span>
+                        <span class="trend up">Updated</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon blue"><i class="fa-regular fa-eye"></i></div>
+                    <div class="stat-info">
+                        <span class="label">Total Views</span>
+                        <span class="value" id="stat-total-views">1.2k</span>
+                        <span class="trend up">+12% this week</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Projects Grid (Bento Style) -->
+            <section class="projects-section">
+                <div class="section-header">
+                    <h2>Recent Works</h2>
+                    <div class="filter-tabs">
+                        <button class="tab active">All</button>
+                        <button class="tab">Web</button>
+                        <button class="tab">Mobile</button>
+                        <button class="tab">Design</button>
+                    </div>
+                </div>
+
+                <div class="bento-grid">
+                    <!-- Large Feature Item -->
+                    <div class="bento-item large"
+                        style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1481487125483-e028bfa17d84?q=80&w=2000&auto=format&fit=crop');">
+                        <div class="item-content">
+                            <span class="tag">Featured</span>
+                            <h3>E-Commerce Reform</h3>
+                            <p>Complete redesign of a fashion retailer platform.</p>
+                        </div>
+                    </div>
+
+                    <!-- Medium Item -->
+                    <div class="bento-item medium"
+                        style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2000&auto=format&fit=crop');">
+                        <div class="item-content">
+                            <span class="tag">Coding</span>
+                            <h3>Dev Dashboard</h3>
+                        </div>
+                    </div>
+
+                    <!-- Medium Item -->
+                    <div class="bento-item medium"
+                        style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=2000&auto=format&fit=crop');">
+                        <div class="item-content">
+                            <span class="tag">Social</span>
+                            <h3>Media Kit</h3>
+                        </div>
+                    </div>
+
+                    <!-- Small Item -->
+                    <div class="bento-item small clean">
+                        <div class="item-content-center">
+                            <div class="icon-circle"><i class="fa-brands fa-figma"></i></div>
+                            <h3>UI Kit</h3>
+                            <p>V1.0.2</p>
+                        </div>
+                    </div>
+
+                    <!-- Small Item -->
+                    <div class="bento-item small clean">
+                        <div class="item-content-center">
+                            <div class="icon-circle"><i class="fa-brands fa-github"></i></div>
+                            <h3>Open Source</h3>
+                            <p>Contribute</p>
+                        </div>
+                    </div>
+
+                    <!-- Wide Item -->
+                    <div class="bento-item wide"
+                        style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=2000&auto=format&fit=crop');">
+                        <div class="item-content">
+                            <span class="tag">Future</span>
+                            <h3>AI Integration</h3>
+                            <p>Exploring new possibilities with LLMs.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+        </main>
+    </div>
+    <div id="product-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Add New Product</h2>
+            <form id="new-product-form">
+                <div class="form-group">
+                    <label for="product-title">Product Title</label>
+                    <input type="text" id="product-title" placeholder="e.g., My Portfolio" required>
+                </div>
+                <div class="form-group">
+                    <label for="product-url">Website URL</label>
+                    <input type="url" id="product-url" placeholder="https://..." required>
+                </div>
+                <!-- Optional: Dropdown for Card Size -->
+                <div class="form-group">
+                    <label for="card-size">Card Size</label>
+                    <select id="card-size">
+                        <option value="medium">Medium (1x1)</option>
+                        <option value="wide">Wide (2x1)</option>
+                        <option value="large">Large (2x2)</option>
+                    </select>
+                </div>
+                <div class="form-actions" style="display: flex; gap: 10px; margin-top: 20px;">
+                    <button type="button" id="delete-btn" class="delete-btn" style="display: none;">Delete</button>
+                    <button type="submit" class="submit-btn" style="flex: 1;">Add Product</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div id="delete-confirmation-modal" class="modal">
+        <div class="modal-content" style="max-width: 400px; text-align: center;">
+            <span class="close-btn" id="delete-close-x">&times;</span>
+            <div style="font-size: 48px; color: #f85149; margin-bottom: 16px;">
+                <i class="fa-solid fa-triangle-exclamation"></i>
+            </div>
+            <h2 style="margin-bottom: 12px; font-size: 20px;">Delete Product?</h2>
+            <p style="color: var(--text-secondary); margin-bottom: 24px; font-size: 14px;">
+                Are you sure you want to delete <span id="delete-target-name"
+                    style="color: var(--text-primary); font-weight: 600;">this product</span>?<br>
+                This action cannot be undone.
+            </p>
+            <div class="form-actions" style="display: flex; gap: 12px; justify-content: center;">
+                <button type="button" id="cancel-delete-btn" class="nav-item"
+                    style="border: 1px solid var(--border-color); background: transparent; cursor: pointer; padding: 10px 20px; border-radius: 8px; font-weight: 600;">Cancel</button>
+                <button type="button" id="confirm-delete-btn" class="delete-btn"
+                    style="background-color: #f85149; color: white; border: none; padding: 10px 20px; flex: 1; max-width: 140px;">Delete</button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
