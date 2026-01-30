@@ -115,21 +115,25 @@ document.addEventListener('DOMContentLoaded', () => {
         bentoGrid.innerHTML = '';
         sidebarList.innerHTML = '';
 
-        projects.forEach(project => {
+        const themes = ['theme-purple', 'theme-blue', 'theme-dark', 'theme-ocean', 'theme-sunset'];
+
+        projects.forEach((project, index) => {
             // 1. Create Grid Item
             const item = document.createElement('a');
-            item.className = `bento-item ${project.size || 'medium'} ${project.isClean ? 'clean' : ''}`;
+
+            // Assign a consistent theme based on ID or Index if not clean, or random if new
+            // Using modulo on title length + index to make it deterministic but varied
+            const themeIndex = (project.title.length + index) % themes.length;
+            const themeClass = themes[themeIndex];
+
+            item.className = `bento-item ${project.size || 'medium'} ${project.isClean ? 'clean' : themeClass}`;
             item.href = project.url;
             item.target = "_blank";
             item.dataset.id = project.id; // Store ID for logic
 
-            // Background Logic: use img + fallback when image URL exists, so we can show gradient if load fails
-            if (!project.isClean) {
-                if (!project.image) {
-                    const hue = Math.floor(Math.random() * 360);
-                    item.style.backgroundImage = `linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.8)), linear-gradient(${hue}deg, #2b2b2b, #1a1a1a)`;
-                }
-            }
+            // Background Logic: 
+            // If it has an image, we still set the theme as a base color, 
+            // but the image will cover it via CSS/HTML structure.
 
             // Content Logic
             let contentHTML = '';
@@ -176,6 +180,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     img.addEventListener('error', () => {
                         img.style.display = 'none';
                         fallback.style.display = 'block';
+                        item.classList.add(themeClass); // Apply theme if image fails
                     });
                 }
             }
@@ -214,7 +219,7 @@ document.addEventListener('DOMContentLoaded', () => {
             statLastActivity.textContent = 'None';
         }
 
-        // Total Views (Simulated Logic)
+        // Total Views (Real Logic)
         updateTotalViews();
     }
 
@@ -236,32 +241,31 @@ document.addEventListener('DOMContentLoaded', () => {
     // View Count Simulation
     function updateTotalViews() {
         const VIEWS_KEY = 'flowlab_total_views';
+        // Get stored views or start at 1240
         let views = parseInt(localStorage.getItem(VIEWS_KEY)) || 1240;
 
-        // Increment on load (Session visit)
-        // Check if we already incremented this session to avoid refresh spamming? 
-        // For "alive" feel, just incrementing on load is fine + random interval.
+        // Increment on page load (Session logic could be added here to prevent spam, 
+        // but for now we simply increment to show it works)
+        // Check if we've already counted this session (tab open)
+        if (!sessionStorage.getItem('view_counted')) {
+            views++;
+            localStorage.setItem(VIEWS_KEY, views);
+            sessionStorage.setItem('view_counted', 'true');
+        }
 
         const updateDisplay = () => {
-            // Format with k if > 1000 (simple logic)
-            const displayValue = views > 999 ? (views / 1000).toFixed(1) + 'k' : views;
-            statTotalViews.textContent = displayValue;
+            // Format with k if > 1000, but since user wants it "real", maybe full number is better?
+            // Let's stick to full number for precision or K for aesthetic. 
+            // Logic: If > 10,000 use K, else show number for movement feel.
+            if (views > 9999) {
+                statTotalViews.textContent = (views / 1000).toFixed(1) + 'k';
+            } else {
+                statTotalViews.textContent = views.toLocaleString();
+            }
         };
 
         // Initial display
         updateDisplay();
-
-        // Simulate "Live" traffic
-        if (!window.viewInterval) {
-            window.viewInterval = setInterval(() => {
-                // Random chance to increment
-                if (Math.random() > 0.4) {
-                    views += Math.floor(Math.random() * 3) + 1; // +1 to +3 views
-                    localStorage.setItem(VIEWS_KEY, views);
-                    updateDisplay();
-                }
-            }, 3000); // Check every 3 seconds
-        }
     }
 
     // --- MODAL & FORM LOGIC ---

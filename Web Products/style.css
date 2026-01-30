@@ -364,6 +364,27 @@ body {
     display: block;
 }
 
+/* Gradient Themes */
+.theme-purple {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%), radial-gradient(circle at top left, rgba(139, 92, 246, 0.4), transparent 70%);
+}
+
+.theme-blue {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%), radial-gradient(circle at top left, rgba(56, 189, 248, 0.4), transparent 70%);
+}
+
+.theme-dark {
+    background: linear-gradient(135deg, #18181b 0%, #27272a 100%), radial-gradient(circle at top left, rgba(255, 255, 255, 0.1), transparent 70%);
+}
+
+.theme-ocean {
+    background: linear-gradient(135deg, #0c4a6e 0%, #075985 100%), radial-gradient(circle at top right, rgba(14, 165, 233, 0.3), transparent 60%);
+}
+
+.theme-sunset {
+    background: linear-gradient(135deg, #4c0519 0%, #881337 100%), radial-gradient(circle at bottom left, rgba(244, 63, 94, 0.3), transparent 60%);
+}
+
 /* Card background: image with fallback when load fails */
 .bento-bg-wrap {
     position: absolute;
