@@ -253,191 +253,159 @@ span {
     margin-top: 2rem;
 }
 
-/* 성장 단계 컨테이너 */
-.growth-levels-container {
+/* 성장 비주얼 컨테이너 */
+.growth-visual {
     position: relative;
-    width: 300px;
-    height: 400px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    padding: 30px 0;
-}
-
-/* 배경 글로우 */
-.levels-glow {
-    position: absolute;
-    width: 280px;
-    height: 380px;
-    background: radial-gradient(ellipse at 50% 30%,
-            rgba(88, 166, 255, 0.2) 0%,
-            rgba(34, 211, 238, 0.1) 40%,
-            transparent 70%);
-    filter: blur(30px);
-    animation: glowBreath 4s ease-in-out infinite;
-}
-
-/* 연결선 SVG */
-.connection-lines {
-    position: absolute;
-    width: 200px;
-    height: 240px;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 0;
-}
-
-.main-path {
-    animation: dashFlow 3s linear infinite;
-}
-
-/* 각 레벨 스타일 */
-.level {
-    position: relative;
-    z-index: 1;
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 2rem;
 }
 
-.level-orb {
+/* 배경 발광 */
+.visual-glow {
+    position: absolute;
+    width: 400px;
+    height: 200px;
+    background: radial-gradient(ellipse at 70% 50%,
+            rgba(88, 166, 255, 0.15) 0%,
+            rgba(34, 211, 238, 0.1) 40%,
+            transparent 70%);
+    filter: blur(40px);
+    pointer-events: none;
+}
+
+/* 가로 배치 성장 단계 */
+.growth-stages {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    z-index: 1;
+}
+
+/* 각 단계 */
+.stage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+/* 단계 원 */
+.stage-orb {
     width: 70px;
     height: 70px;
     border-radius: 50%;
     background: linear-gradient(135deg,
-            rgba(255, 255, 255, 0.1) 0%,
-            rgba(255, 255, 255, 0.03) 100%);
-    backdrop-filter: blur(15px);
-    border: 1px solid rgba(255, 255, 255, 0.15);
+            rgba(255, 255, 255, 0.08) 0%,
+            rgba(255, 255, 255, 0.02) 100%);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow:
-        0 4px 20px rgba(0, 0, 0, 0.3),
-        inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
     transition: all 0.3s ease;
 }
 
-.level-icon {
-    font-size: 28px;
-    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+.stage-icon {
+    width: 40px;
+    height: 40px;
 }
 
-/* 레벨 링 */
-.level-ring {
-    position: absolute;
-    width: 90px;
-    height: 90px;
-    border-radius: 50%;
-    border: 1px solid rgba(88, 166, 255, 0.3);
-    animation: ringPulse 3s ease-in-out infinite;
+/* 단계 레이블 */
+.stage-label {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.6);
+    font-weight: 500;
+    letter-spacing: 0.05em;
 }
 
-/* 레벨 1: 씨앗 */
-.level-1 {
-    animation: levelFloat 4s ease-in-out infinite;
-}
-
-.level-1 .level-orb {
+/* 1단계 */
+.stage-1 .stage-orb {
     opacity: 0.7;
 }
 
-.level-1 .level-ring {
-    animation-delay: 0s;
+.stage-1 {
+    animation: stageFloat 4s ease-in-out infinite;
 }
 
-/* 레벨 2: 새싹 */
-.level-2 {
-    animation: levelFloat 4s ease-in-out infinite;
-    animation-delay: -1.3s;
-}
-
-.level-2 .level-orb {
-    width: 80px;
-    height: 80px;
+/* 2단계 */
+.stage-2 .stage-orb {
+    width: 85px;
+    height: 85px;
     opacity: 0.85;
 }
 
-.level-2 .level-icon {
-    font-size: 32px;
+.stage-2 .stage-icon {
+    width: 50px;
+    height: 50px;
 }
 
-.level-2 .level-ring {
-    width: 100px;
-    height: 100px;
-    animation-delay: -1s;
+.stage-2 {
+    animation: stageFloat 4s ease-in-out infinite;
+    animation-delay: -1.3s;
 }
 
-/* 레벨 3: 나무 (최종 단계) */
-.level-3 {
-    animation: levelFloat 4s ease-in-out infinite;
+/* 3단계 - 메인 */
+.stage-3 {
+    position: relative;
+    animation: stageFloat 4s ease-in-out infinite;
     animation-delay: -2.6s;
 }
 
-.level-3 .level-orb {
+.stage-3 .stage-orb {
     width: 100px;
     height: 100px;
     background: linear-gradient(135deg,
-            rgba(88, 166, 255, 0.15) 0%,
-            rgba(34, 211, 238, 0.1) 100%);
-    border-color: rgba(88, 166, 255, 0.4);
+            rgba(88, 166, 255, 0.12) 0%,
+            rgba(34, 211, 238, 0.08) 100%);
+    border-color: rgba(88, 166, 255, 0.3);
     box-shadow:
-        0 8px 32px rgba(88, 166, 255, 0.3),
-        inset 0 1px 0 rgba(255, 255, 255, 0.2),
-        0 0 40px rgba(34, 211, 238, 0.2);
+        0 8px 32px rgba(88, 166, 255, 0.2),
+        0 0 40px rgba(34, 211, 238, 0.1);
 }
 
-.level-3 .level-icon {
-    font-size: 42px;
+.stage-3 .stage-icon {
+    width: 60px;
+    height: 60px;
 }
 
-.level-3 .level-ring {
-    width: 130px;
-    height: 130px;
-    border-color: rgba(88, 166, 255, 0.5);
-    animation-delay: -2s;
+.stage-3 .stage-label {
+    color: var(--main-color);
+    font-weight: 600;
 }
 
-/* 왕관 글로우 (최상위 단계) */
-.crown-glow {
+/* 3단계 발광 효과 */
+.stage-glow {
     position: absolute;
-    width: 150px;
-    height: 150px;
+    width: 140px;
+    height: 140px;
     border-radius: 50%;
     background: radial-gradient(circle,
-            rgba(88, 166, 255, 0.2) 0%,
+            rgba(88, 166, 255, 0.15) 0%,
             transparent 70%);
-    animation: crownPulse 2s ease-in-out infinite;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -60%);
+    animation: glowPulse 3s ease-in-out infinite;
+    pointer-events: none;
 }
 
-/* 애니메이션 정의 */
-@keyframes glowBreath {
-
-    0%,
-    100% {
-        opacity: 0.8;
-        transform: scale(1);
-    }
-
-    50% {
-        opacity: 1;
-        transform: scale(1.05);
-    }
+/* 연결선 */
+.stage-connector {
+    width: 50px;
+    height: 20px;
+    display: flex;
+    align-items: center;
 }
 
-@keyframes dashFlow {
-    0% {
-        stroke-dashoffset: 24;
-    }
-
-    100% {
-        stroke-dashoffset: 0;
-    }
+.connector-path {
+    animation: dashFlow 2s linear infinite;
 }
 
-@keyframes levelFloat {
+/* 애니메이션 */
+@keyframes stageFloat {
 
     0%,
     100% {
@@ -445,35 +413,31 @@ span {
     }
 
     50% {
-        transform: translateY(-8px);
+        transform: translateY(-6px);
     }
 }
 
-@keyframes ringPulse {
+@keyframes glowPulse {
 
     0%,
     100% {
-        transform: scale(1);
-        opacity: 0.3;
-    }
-
-    50% {
-        transform: scale(1.15);
         opacity: 0.6;
-    }
-}
-
-@keyframes crownPulse {
-
-    0%,
-    100% {
-        transform: scale(1);
-        opacity: 0.5;
+        transform: translate(-50%, -60%) scale(1);
     }
 
     50% {
-        transform: scale(1.2);
-        opacity: 0.8;
+        opacity: 1;
+        transform: translate(-50%, -60%) scale(1.1);
+    }
+}
+
+@keyframes dashFlow {
+    0% {
+        stroke-dashoffset: 20;
+    }
+
+    100% {
+        stroke-dashoffset: 0;
     }
 }
 
@@ -1394,37 +1358,51 @@ span {
         margin-top: 4rem;
     }
 
-    .growth-levels-container {
-        width: 260px;
-        height: 350px;
-        padding: 20px 0;
+    .growth-visual {
+        padding: 1rem;
     }
 
-    .level-1 .level-orb {
+    .growth-stages {
+        gap: 0;
+        transform: scale(0.85);
+    }
+
+    .stage-orb {
         width: 55px;
         height: 55px;
     }
 
-    .level-1 .level-icon {
-        font-size: 22px;
+    .stage-icon {
+        width: 30px;
+        height: 30px;
     }
 
-    .level-2 .level-orb {
+    .stage-label {
+        font-size: 1rem;
+    }
+
+    .stage-2 .stage-orb {
         width: 65px;
         height: 65px;
     }
 
-    .level-2 .level-icon {
-        font-size: 26px;
+    .stage-2 .stage-icon {
+        width: 38px;
+        height: 38px;
     }
 
-    .level-3 .level-orb {
-        width: 85px;
-        height: 85px;
+    .stage-3 .stage-orb {
+        width: 80px;
+        height: 80px;
     }
 
-    .level-3 .level-icon {
-        font-size: 36px;
+    .stage-3 .stage-icon {
+        width: 48px;
+        height: 48px;
+    }
+
+    .stage-connector {
+        width: 35px;
     }
 
 
