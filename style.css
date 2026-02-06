@@ -251,100 +251,229 @@ span {
 
 .home-img {
     margin-top: 2rem;
-    /* Mobile fix adjustment */
 }
 
-.home-img .glowing-circle {
+/* 성장 단계 컨테이너 */
+.growth-levels-container {
     position: relative;
-    width: 350px;
-    height: 350px;
-    border-radius: 50%;
+    width: 300px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 0;
+}
+
+/* 배경 글로우 */
+.levels-glow {
+    position: absolute;
+    width: 280px;
+    height: 380px;
+    background: radial-gradient(ellipse at 50% 30%,
+            rgba(88, 166, 255, 0.2) 0%,
+            rgba(34, 211, 238, 0.1) 40%,
+            transparent 70%);
+    filter: blur(30px);
+    animation: glowBreath 4s ease-in-out infinite;
+}
+
+/* 연결선 SVG */
+.connection-lines {
+    position: absolute;
+    width: 200px;
+    height: 240px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+}
+
+.main-path {
+    animation: dashFlow 3s linear infinite;
+}
+
+/* 각 레벨 스타일 */
+.level {
+    position: relative;
+    z-index: 1;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.home-img .glowing-circle::after {
-    content: '';
-    position: absolute;
-    width: 330px;
-    height: 330px;
-    background: var(--bg-color);
-    /* Cutout effect */
+.level-orb {
+    width: 70px;
+    height: 70px;
     border-radius: 50%;
+    background: linear-gradient(135deg,
+            rgba(255, 255, 255, 0.1) 0%,
+            rgba(255, 255, 255, 0.03) 100%);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow:
+        0 4px 20px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    transition: all 0.3s ease;
 }
 
-.home-img .glowing-circle span {
+.level-icon {
+    font-size: 28px;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+/* 레벨 링 */
+.level-ring {
     position: absolute;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(#0f766e, #22d3ee);
-    /* 청록/에메랄드 톤으로 변경 */
+    width: 90px;
+    height: 90px;
     border-radius: 50%;
-    animation: circleRotate 5s linear infinite;
+    border: 1px solid rgba(88, 166, 255, 0.3);
+    animation: ringPulse 3s ease-in-out infinite;
 }
 
-.home-img .glowing-circle span:nth-child(1) {
-    filter: blur(10px);
+/* 레벨 1: 씨앗 */
+.level-1 {
+    animation: levelFloat 4s ease-in-out infinite;
 }
 
-.home-img .image {
-    position: relative;
-    width: 330px;
-    height: 330px;
-    z-index: 1;
-    border-radius: 50%;
-    overflow: hidden;
-    border: 5px solid var(--bg-color);
-    /* Gap between gradient and image */
+.level-1 .level-orb {
+    opacity: 0.7;
 }
 
-.home-img .image img {
+.level-1 .level-ring {
+    animation-delay: 0s;
+}
+
+/* 레벨 2: 새싹 */
+.level-2 {
+    animation: levelFloat 4s ease-in-out infinite;
+    animation-delay: -1.3s;
+}
+
+.level-2 .level-orb {
+    width: 80px;
+    height: 80px;
+    opacity: 0.85;
+}
+
+.level-2 .level-icon {
+    font-size: 32px;
+}
+
+.level-2 .level-ring {
+    width: 100px;
+    height: 100px;
+    animation-delay: -1s;
+}
+
+/* 레벨 3: 나무 (최종 단계) */
+.level-3 {
+    animation: levelFloat 4s ease-in-out infinite;
+    animation-delay: -2.6s;
+}
+
+.level-3 .level-orb {
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(135deg,
+            rgba(88, 166, 255, 0.15) 0%,
+            rgba(34, 211, 238, 0.1) 100%);
+    border-color: rgba(88, 166, 255, 0.4);
+    box-shadow:
+        0 8px 32px rgba(88, 166, 255, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2),
+        0 0 40px rgba(34, 211, 238, 0.2);
+}
+
+.level-3 .level-icon {
+    font-size: 42px;
+}
+
+.level-3 .level-ring {
+    width: 130px;
+    height: 130px;
+    border-color: rgba(88, 166, 255, 0.5);
+    animation-delay: -2s;
+}
+
+/* 왕관 글로우 (최상위 단계) */
+.crown-glow {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 130%;
-    height: 130%;
-    object-fit: cover;
-    object-position: center 20%;
-    animation: globeFloat 8s ease-in-out infinite;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: radial-gradient(circle,
+            rgba(88, 166, 255, 0.2) 0%,
+            transparent 70%);
+    animation: crownPulse 2s ease-in-out infinite;
 }
 
-/* 지구본 스타일 부드러운 움직임 */
-@keyframes globeFloat {
+/* 애니메이션 정의 */
+@keyframes glowBreath {
 
     0%,
     100% {
-        transform: translate(-50%, -50%) scale(1);
-    }
-
-    25% {
-        transform: translate(-48%, -51%) scale(1.02);
+        opacity: 0.8;
+        transform: scale(1);
     }
 
     50% {
-        transform: translate(-52%, -50%) scale(1);
-    }
-
-    75% {
-        transform: translate(-50%, -49%) scale(1.02);
+        opacity: 1;
+        transform: scale(1.05);
     }
 }
 
-
-
-.home-img .image:hover img {
-    transform: translate(-50%, -50%) scale(1.1);
-}
-
-@keyframes circleRotate {
+@keyframes dashFlow {
     0% {
-        transform: rotate(0deg);
+        stroke-dashoffset: 24;
     }
 
     100% {
-        transform: rotate(360deg);
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes levelFloat {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+@keyframes ringPulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 0.3;
+    }
+
+    50% {
+        transform: scale(1.15);
+        opacity: 0.6;
+    }
+}
+
+@keyframes crownPulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 0.5;
+    }
+
+    50% {
+        transform: scale(1.2);
+        opacity: 0.8;
     }
 }
 
@@ -770,7 +899,7 @@ span {
     right: 0;
     bottom: 0;
     background: radial-gradient(circle at 20% 50%, rgba(88, 166, 255, 0.05) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(34, 211, 238, 0.05) 0%, transparent 50%);
+        radial-gradient(circle at 80% 80%, rgba(34, 211, 238, 0.05) 0%, transparent 50%);
     pointer-events: none;
 }
 
@@ -818,7 +947,7 @@ span {
     justify-content: space-between;
     height: 100%;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3),
-                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
 /* Gradient Overlay on Hover */
@@ -872,8 +1001,8 @@ span {
     transform: translateY(-12px) scale(1.02);
     border-color: rgba(255, 255, 255, 0.25);
     box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5),
-                0 0 0 1px rgba(255, 255, 255, 0.1),
-                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        0 0 0 1px rgba(255, 255, 255, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.06) 100%);
 }
 
@@ -943,50 +1072,50 @@ span {
 .card-temperament .product-icon {
     background: linear-gradient(135deg, #8b5cf6 0%, #3b82f6 50%, #22d3ee 100%);
     box-shadow: 0 15px 35px rgba(59, 130, 246, 0.4),
-                inset 0 0 20px rgba(255, 255, 255, 0.1);
+        inset 0 0 20px rgba(255, 255, 255, 0.1);
 }
 
 .card-temperament:hover .product-icon {
     transform: translateY(-5px) rotate(5deg) scale(1.1);
     box-shadow: 0 20px 45px rgba(59, 130, 246, 0.6),
-                inset 0 0 30px rgba(255, 255, 255, 0.2);
+        inset 0 0 30px rgba(255, 255, 255, 0.2);
 }
 
 .card-godsaeng .product-icon {
     background: linear-gradient(135deg, #f59e0b 0%, #ef4444 50%, #f97316 100%);
     box-shadow: 0 15px 35px rgba(239, 68, 68, 0.4),
-                inset 0 0 20px rgba(255, 255, 255, 0.1);
+        inset 0 0 20px rgba(255, 255, 255, 0.1);
 }
 
 .card-godsaeng:hover .product-icon {
     transform: translateY(-5px) rotate(-5deg) scale(1.1);
     box-shadow: 0 20px 45px rgba(239, 68, 68, 0.6),
-                inset 0 0 30px rgba(255, 255, 255, 0.2);
+        inset 0 0 30px rgba(255, 255, 255, 0.2);
 }
 
 .card-newsletter .product-icon {
     background: linear-gradient(135deg, #06b6d4 0%, #3b82f6 50%, #8b5cf6 100%);
     box-shadow: 0 15px 35px rgba(6, 182, 212, 0.4),
-                inset 0 0 20px rgba(255, 255, 255, 0.1);
+        inset 0 0 20px rgba(255, 255, 255, 0.1);
 }
 
 .card-newsletter:hover .product-icon {
     transform: translateY(-5px) rotate(5deg) scale(1.1);
     box-shadow: 0 20px 45px rgba(6, 182, 212, 0.6),
-                inset 0 0 30px rgba(255, 255, 255, 0.2);
+        inset 0 0 30px rgba(255, 255, 255, 0.2);
 }
 
 /* Default card icon styling */
 .product-card:not(.card-temperament):not(.card-godsaeng):not(.card-newsletter) .product-icon {
     background: linear-gradient(135deg, var(--main-color) 0%, #22d3ee 100%);
     box-shadow: 0 15px 35px rgba(88, 166, 255, 0.4),
-                inset 0 0 20px rgba(255, 255, 255, 0.1);
+        inset 0 0 20px rgba(255, 255, 255, 0.1);
 }
 
 .product-card:not(.card-temperament):not(.card-godsaeng):not(.card-newsletter):hover .product-icon {
     transform: translateY(-5px) scale(1.1);
     box-shadow: 0 20px 45px rgba(88, 166, 255, 0.6),
-                inset 0 0 30px rgba(255, 255, 255, 0.2);
+        inset 0 0 30px rgba(255, 255, 255, 0.2);
 }
 
 .product-card h3 {
@@ -1026,17 +1155,17 @@ span {
         grid-template-rows: repeat(2, 360px);
         gap: 2rem;
     }
-    
+
     .product-card {
         padding: 3rem 2rem 2.5rem;
     }
-    
+
     .product-icon {
         width: 8rem;
         height: 8rem;
         font-size: 3.5rem;
     }
-    
+
     .product-card h3 {
         font-size: 2.2rem;
     }
@@ -1059,7 +1188,7 @@ span {
         grid-row: span 1;
         min-height: 420px;
     }
-    
+
     .product-card {
         padding: 3.5rem 2.5rem 3rem;
     }
@@ -1069,7 +1198,7 @@ span {
     .products {
         padding: 8rem 5%;
     }
-    
+
     .heading {
         font-size: 3.5rem;
     }
@@ -1084,29 +1213,29 @@ span {
         grid-column: span 1;
         min-height: auto;
     }
-    
+
     .product-card {
         padding: 3rem 2rem 2.5rem;
         border-radius: 2rem;
     }
-    
+
     .product-icon {
         width: 7.5rem;
         height: 7.5rem;
         font-size: 3.2rem;
         margin: 2rem auto 1.5rem;
     }
-    
+
     .product-card h3 {
         font-size: 2rem;
         margin-bottom: 1.2rem;
     }
-    
+
     .product-card p {
         font-size: 1.4rem;
         margin-bottom: 2rem;
     }
-    
+
     .product-tag {
         top: 1.2rem;
         right: 1.2rem;
@@ -1261,24 +1390,43 @@ span {
     }
 
     .home-img {
-        width: 70vw;
+        width: 90vw;
         margin-top: 4rem;
     }
 
-    .home-img .glowing-circle {
-        width: 70vw;
-        height: 70vw;
+    .growth-levels-container {
+        width: 260px;
+        height: 350px;
+        padding: 20px 0;
     }
 
-    .home-img .glowing-circle::after {
-        width: 65vw;
-        height: 65vw;
+    .level-1 .level-orb {
+        width: 55px;
+        height: 55px;
     }
 
-    .home-img .image {
-        width: 65vw;
-        height: 65vw;
+    .level-1 .level-icon {
+        font-size: 22px;
     }
+
+    .level-2 .level-orb {
+        width: 65px;
+        height: 65px;
+    }
+
+    .level-2 .level-icon {
+        font-size: 26px;
+    }
+
+    .level-3 .level-orb {
+        width: 85px;
+        height: 85px;
+    }
+
+    .level-3 .level-icon {
+        font-size: 36px;
+    }
+
 
     .about {
         flex-direction: column-reverse;

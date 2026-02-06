@@ -56,11 +56,43 @@
         </div>
 
         <div class="home-img">
-            <div class="glowing-circle">
-                <span></span>
-                <span></span>
-                <div class="image">
-                    <img src="jeremy04.png" alt="FLOWLAB 코치">
+            <div class="growth-levels-container">
+                <!-- 배경 그라데이션 글로우 -->
+                <div class="levels-glow"></div>
+
+                <!-- 연결선 -->
+                <svg class="connection-lines" viewBox="0 0 200 240">
+                    <defs>
+                        <linearGradient id="lineGrad" x1="0%" y1="100%" x2="0%" y2="0%">
+                            <stop offset="0%" style="stop-color:#22d3ee;stop-opacity:0.3" />
+                            <stop offset="100%" style="stop-color:#58a6ff;stop-opacity:0.8" />
+                        </linearGradient>
+                    </defs>
+                    <path d="M 100,200 L 100,140 L 100,80 L 100,20" fill="none" stroke="url(#lineGrad)" stroke-width="2"
+                        stroke-dasharray="8,4" class="main-path" />
+                </svg>
+
+                <!-- 성장 단계 원들 -->
+                <div class="level level-1">
+                    <div class="level-orb">
+                        <span class="level-icon">🌱</span>
+                    </div>
+                    <div class="level-ring"></div>
+                </div>
+
+                <div class="level level-2">
+                    <div class="level-orb">
+                        <span class="level-icon">🌿</span>
+                    </div>
+                    <div class="level-ring"></div>
+                </div>
+
+                <div class="level level-3">
+                    <div class="level-orb active">
+                        <span class="level-icon">🌳</span>
+                    </div>
+                    <div class="level-ring"></div>
+                    <div class="crown-glow"></div>
                 </div>
             </div>
         </div>
