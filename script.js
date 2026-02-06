@@ -18,7 +18,7 @@ window.onscroll = () => {
         let height = sec.offsetHeight;
         let id = sec.getAttribute('id');
 
-        if(top >= offset && top < offset + height) {
+        if (top >= offset && top < offset + height) {
             navLinks.forEach(links => {
                 links.classList.remove('active');
                 document.querySelector('header nav a[href*=' + id + ']').classList.add('active');
@@ -36,7 +36,7 @@ window.onscroll = () => {
 };
 
 /* Scroll Reveal */
-ScrollReveal({ 
+ScrollReveal({
     // reset: true, /* Turn off reset for better UX on mobile */
     distance: '80px',
     duration: 2000,
@@ -55,22 +55,4 @@ const typed = new Typed('.multiple-text', {
     backSpeed: 60,
     backDelay: 1500,
     loop: true
-});
-
-/* Custom Cursor */
-const cursorDot = document.querySelector('[data-cursor-dot]');
-const cursorOutline = document.querySelector('[data-cursor-outline]');
-
-window.addEventListener('mousemove', function(e) {
-    const posX = e.clientX;
-    const posY = e.clientY;
-
-    cursorDot.style.left = `${posX}px`;
-    cursorDot.style.top = `${posY}px`;
-
-    // ease movement for outline
-    cursorOutline.animate({
-        left: `${posX}px`,
-        top: `${posY}px`
-    }, { duration: 500, fill: "forwards" });
 });

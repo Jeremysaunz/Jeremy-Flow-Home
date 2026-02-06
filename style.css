@@ -34,31 +34,6 @@ body {
     /* Custom cursor */
 }
 
-/* Custom Cursor */
-.cursor-dot,
-.cursor-outline {
-    position: fixed;
-    top: 0;
-    left: 0;
-    transform: translate(-50%, -50%);
-    border-radius: 50%;
-    z-index: 9999;
-    pointer-events: none;
-}
-
-.cursor-dot {
-    width: 8px;
-    height: 8px;
-    background-color: var(--main-color);
-}
-
-.cursor-outline {
-    width: 40px;
-    height: 40px;
-    border: 2px solid var(--main-color);
-    transition: width 0.2s, height 0.2s, background-color 0.2s;
-}
-
 /* Header */
 .header {
     position: fixed;
@@ -253,168 +228,212 @@ span {
     margin-top: 2rem;
 }
 
-/* 성장 비주얼 컨테이너 */
-.growth-visual {
+/* Flow Philosophy Visualization - "Flow Makes You Grow" */
+.flow-philosophy {
     position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 2rem;
-}
-
-/* 배경 발광 */
-.visual-glow {
-    position: absolute;
     width: 400px;
-    height: 200px;
-    background: radial-gradient(ellipse at 70% 50%,
-            rgba(88, 166, 255, 0.15) 0%,
-            rgba(34, 211, 238, 0.1) 40%,
-            transparent 70%);
-    filter: blur(40px);
-    pointer-events: none;
-}
-
-/* 가로 배치 성장 단계 */
-.growth-stages {
+    height: 400px;
     display: flex;
     align-items: center;
-    gap: 0;
+    justify-content: center;
+}
+
+/* 배경 글로우 */
+.philosophy-glow {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(74, 144, 226, 0.15) 0%, transparent 70%);
+    border-radius: 50%;
+    filter: blur(40px);
+    animation: philosophyPulse 4s ease-in-out infinite;
     z-index: 1;
 }
 
-/* 각 단계 */
-.stage {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.8rem;
-}
-
-/* 단계 원 */
-.stage-orb {
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-    background: linear-gradient(135deg,
-            rgba(255, 255, 255, 0.08) 0%,
-            rgba(255, 255, 255, 0.02) 100%);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s ease;
-}
-
-.stage-icon {
-    width: 40px;
-    height: 40px;
-}
-
-/* 단계 레이블 */
-.stage-label {
-    font-size: 1.2rem;
-    color: rgba(255, 255, 255, 0.6);
-    font-weight: 500;
-    letter-spacing: 0.05em;
-}
-
-/* 1단계 */
-.stage-1 .stage-orb {
-    opacity: 0.7;
-}
-
-.stage-1 {
-    animation: stageFloat 4s ease-in-out infinite;
-}
-
-/* 2단계 */
-.stage-2 .stage-orb {
-    width: 85px;
-    height: 85px;
-    opacity: 0.85;
-}
-
-.stage-2 .stage-icon {
-    width: 50px;
-    height: 50px;
-}
-
-.stage-2 {
-    animation: stageFloat 4s ease-in-out infinite;
-    animation-delay: -1.3s;
-}
-
-/* 3단계 - 메인 */
-.stage-3 {
-    position: relative;
-    animation: stageFloat 4s ease-in-out infinite;
-    animation-delay: -2.6s;
-}
-
-.stage-3 .stage-orb {
-    width: 100px;
-    height: 100px;
-    background: linear-gradient(135deg,
-            rgba(88, 166, 255, 0.12) 0%,
-            rgba(34, 211, 238, 0.08) 100%);
-    border-color: rgba(88, 166, 255, 0.3);
-    box-shadow:
-        0 8px 32px rgba(88, 166, 255, 0.2),
-        0 0 40px rgba(34, 211, 238, 0.1);
-}
-
-.stage-3 .stage-icon {
-    width: 60px;
-    height: 60px;
-}
-
-.stage-3 .stage-label {
-    color: var(--main-color);
-    font-weight: 600;
-}
-
-/* 3단계 발광 효과 */
-.stage-glow {
-    position: absolute;
-    width: 140px;
-    height: 140px;
-    border-radius: 50%;
-    background: radial-gradient(circle,
-            rgba(88, 166, 255, 0.15) 0%,
-            transparent 70%);
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -60%);
-    animation: glowPulse 3s ease-in-out infinite;
-    pointer-events: none;
-}
-
-/* 연결선 */
-.stage-connector {
-    width: 50px;
-    height: 20px;
-    display: flex;
-    align-items: center;
-}
-
-.connector-path {
-    animation: dashFlow 2s linear infinite;
-}
-
-/* 애니메이션 */
-@keyframes stageFloat {
+@keyframes philosophyPulse {
 
     0%,
     100% {
-        transform: translateY(0);
+        transform: scale(1);
+        opacity: 0.6;
     }
 
     50% {
-        transform: translateY(-6px);
+        transform: scale(1.1);
+        opacity: 0.8;
     }
+}
+
+/* 중앙 Flow 심볼 */
+.flow-center {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.flow-orb {
+    width: 150px;
+    height: 150px;
+    background: linear-gradient(135deg,
+            rgba(74, 144, 226, 0.15) 0%,
+            rgba(34, 211, 238, 0.1) 100%);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 2px solid rgba(74, 144, 226, 0.3);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow:
+        0 8px 32px rgba(74, 144, 226, 0.2),
+        inset 0 2px 10px rgba(255, 255, 255, 0.1),
+        0 0 60px rgba(74, 144, 226, 0.3);
+    animation: flowOrbFloat 6s ease-in-out infinite;
+}
+
+@keyframes flowOrbFloat {
+
+    0%,
+    100% {
+        transform: translateY(0px) scale(1);
+    }
+
+    50% {
+        transform: translateY(-15px) scale(1.05);
+    }
+}
+
+.flow-icon {
+    width: 80px;
+    height: 80px;
+    color: var(--main-color);
+    filter: drop-shadow(0 0 10px rgba(74, 144, 226, 0.5));
+}
+
+.flow-label {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--main-color);
+    text-shadow: 0 0 20px rgba(74, 144, 226, 0.5);
+    letter-spacing: 2px;
+}
+
+.flow-subtitle {
+    font-size: 1rem;
+    color: var(--text-color);
+    opacity: 0.8;
+    font-weight: 300;
+}
+
+/* Growth 요소들 - Flow에서 파생 */
+.growth-elements {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+}
+
+.growth-particle {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    color: #4ade80;
+    opacity: 0;
+    filter: drop-shadow(0 0 8px rgba(74, 222, 128, 0.6));
+    animation: growthEmerge 3s ease-out infinite;
+}
+
+.growth-particle svg {
+    width: 100%;
+    height: 100%;
+}
+
+/* Growth Particle 위치 및 애니메이션 */
+.growth-particle-1 {
+    top: 10%;
+    right: 15%;
+    animation-delay: 0s;
+}
+
+.growth-particle-2 {
+    top: 30%;
+    right: 5%;
+    animation-delay: 0.5s;
+}
+
+.growth-particle-3 {
+    bottom: 20%;
+    right: 10%;
+    animation-delay: 1s;
+}
+
+.growth-particle-4 {
+    bottom: 35%;
+    right: 20%;
+    animation-delay: 1.5s;
+}
+
+@keyframes growthEmerge {
+    0% {
+        opacity: 0;
+        transform: translate(-30px, -30px) scale(0.3);
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    80% {
+        opacity: 0.8;
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate(0, 0) scale(1.2);
+    }
+}
+
+/* Growth 라벨 */
+.growth-label-container {
+    position: absolute;
+    bottom: 10%;
+    right: 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.3rem;
+    z-index: 2;
+    animation: growthLabelFade 2s ease-in-out infinite;
+}
+
+@keyframes growthLabelFade {
+
+    0%,
+    100% {
+        opacity: 0.7;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+.growth-label {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #4ade80;
+    text-shadow: 0 0 15px rgba(74, 222, 128, 0.5);
+    letter-spacing: 1px;
+}
+
+.growth-subtitle {
+    font-size: 0.85rem;
+    color: var(--text-color);
+    opacity: 0.7;
+    font-weight: 300;
 }
 
 @keyframes glowPulse {
@@ -1358,51 +1377,41 @@ span {
         margin-top: 4rem;
     }
 
-    .growth-visual {
-        padding: 1rem;
+    .flow-philosophy {
+        width: 300px;
+        height: 300px;
+        transform: scale(0.9);
     }
 
-    .growth-stages {
-        gap: 0;
-        transform: scale(0.85);
+    .flow-orb {
+        width: 120px;
+        height: 120px;
     }
 
-    .stage-orb {
-        width: 55px;
-        height: 55px;
+    .flow-icon {
+        width: 60px;
+        height: 60px;
     }
 
-    .stage-icon {
+    .flow-label {
+        font-size: 1.5rem;
+    }
+
+    .flow-subtitle {
+        font-size: 0.85rem;
+    }
+
+    .growth-particle {
         width: 30px;
         height: 30px;
     }
 
-    .stage-label {
-        font-size: 1rem;
+    .growth-label {
+        font-size: 1.2rem;
     }
 
-    .stage-2 .stage-orb {
-        width: 65px;
-        height: 65px;
-    }
-
-    .stage-2 .stage-icon {
-        width: 38px;
-        height: 38px;
-    }
-
-    .stage-3 .stage-orb {
-        width: 80px;
-        height: 80px;
-    }
-
-    .stage-3 .stage-icon {
-        width: 48px;
-        height: 48px;
-    }
-
-    .stage-connector {
-        width: 35px;
+    .growth-subtitle {
+        font-size: 0.75rem;
     }
 
 
